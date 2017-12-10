@@ -1,2 +1,2 @@
-# Practice-JDBC
-A Practice
+这是一个JDBC的使用练习
+主要是对于JDBC代码的封装 
