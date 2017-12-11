@@ -1,22 +1,20 @@
-package com.ccshxt.lesson21;
+package lian;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import java.sql.ResultSetMetaData;
-
-public final class DBUtils {
-
-	private static final String DRIVER = "com.mysql.jdbc.Driver";
+public class Shopjdbc {
+private static final String DRIVER = "com.mysql.jdbc.Driver";
 	
-	private static final String URL = "jdbc:mysql://127.0.0.1:3306/tianyao32";
+	private static final String URL = "jdbc:mysql://127.0.0.1:3306/tianyao23";
 	
 	private static final String USER = "root";
 	
@@ -28,9 +26,9 @@ public final class DBUtils {
 	
 	private ResultSet rs;
 	
-	private static DBUtils db;
+	private static Shopjdbc db;
 	
-	private DBUtils(){
+	private Shopjdbc(){
 		//什么都不写
 	}
 	
@@ -38,9 +36,9 @@ public final class DBUtils {
 	 * data access object
 	 * @return
 	 */
-	public static DBUtils dao() {
+	public static Shopjdbc dao() {
 		if(db == null) {
-			db = new DBUtils();
+			db = new Shopjdbc();
 		}
 		return db;
 	}
@@ -68,7 +66,7 @@ public final class DBUtils {
 		
 	}
 	
-	public List<Map<String,String>> find(String sql,Object... params) {
+	public List<Map<String,String>> find(String sql,String... params) {
 		List<Map<String,String>> list = new ArrayList<>();
 		try {
 			ps = getConn().prepareStatement(sql);//预编译处理
